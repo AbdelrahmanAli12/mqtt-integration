@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffcb08;
+      color: #000000;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    form {
+      width: 300px;
+      margin: 50px auto;
+    }
+
+    label, input, select {
+      display: block;
+      margin-bottom: 10px;
+      color: #000000;
+    }
+
+    input[type="number"],
+    input[type="text"],
+    input[type="password"],
+    select {
+      width: 100%;
+      padding: 10px;
+      background-color: #ffffff;
+      color: #000000;
+      border: 1px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #ed1c24;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Login to MQTT</h1>
+  <form action="/getData" method="post">
+ <label for="mqttPort">Select MQTT port:</label>
+    <select id="mqttPort" name="mqttport" required>
+      <option value="1883">1883</option>
+      <option value="8883">8883</option>
+    </select>
+
+    <label for="mqttClientId">MQTT Client ID:</label>
+    <input type="text" id="mqttClientId" name="mqttClientId" value="mqttjs_" readonly >
+
+    <label for="mqttUsername">MQTT Username:</label>
+    <input type="text" id="mqttUsername" name="mqttUsername" required>
+    <!-- Hidden input field to store the username -->
+    <input type="hidden" id="hiddenUsername" name="hiddenUsername">
+
+    <label for="mqttPassword">MQTT Password:</label>
+    <input type="password" id="mqttPassword" name="mqttPassword" required>
+     <label for="cluster">Select Cluster:</label>
+    <select id="cluster" name="cluster" required>
+      <option value="eu1">Europe</option>
+      <option value="au1">Australia</option>
+      <option value="nam1">Nourth America</option>
+    </select>
+    <input type="submit" value="Login">
+  </form>
+  <script>
+    // JavaScript code to set the value of hiddenUsername field
+    document.addEventListener('DOMContentLoaded', function() {
+      var usernameInput = document.getElementById('username');
+      var hiddenUsernameInput = document.getElementById('hiddenUsername');
+      usernameInput.addEventListener('input', function() {
+        hiddenUsernameInput.value = usernameInput.value;
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000000;
+      color: #ffcb08;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    p#mqttData {
+      text-align: center;
+      font-size: 24px;
+      margin-top: 20px;
+      color: #ffcb08;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dashboard</h1>
+    <h2>Welcome, <%= username %>!</h2>
+  <h2>MQTT Data</h2>
+  <p id="mqttData">Distance: <%= mqttData %></p>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+
+    socket.on("connect", function () {
+      console.log("Connected to server");
+    });
+
+    socket.on("disconnect", function () {
+      console.log("Disconnected from server");
+    });
+
+    socket.emit("REQUEST_GET_DATA");
+
+    socket.on("SEND_DATA", function (data) {
+      document.getElementById("mqttData").innerText = "Distance: " + data;
+    });
+  </script>
+</body>
+</html>
