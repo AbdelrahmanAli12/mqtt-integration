@@ -49,7 +49,6 @@ app.get("/", function (req, res) {
 app.post("/getData", function (req, res) {
   const { cluster, mqttPort, mqttClientId, mqttUsername, mqttPassword } =
     req.body;
-
   // Update MQTT options with the submitted values
   var options = {
     port: mqttPort,
@@ -65,7 +64,6 @@ app.post("/getData", function (req, res) {
   };
   var urlbroker = `https://${cluster}.cloud.thethings.network`;
   connectToMQTT(urlbroker, options);
-
   res.render("dashboard", { mqttData: globalMQTT, username: mqttUsername });
 });
 
