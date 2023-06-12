@@ -38,7 +38,7 @@ server.js: This file configures the Express application, middleware, starts the 
 
 views/: The EJS templates used to render the login and dashboard pages can be found in this directory.
 
-End device C code:The code for the end device is available in the endDeviceVersion103.c file, This code is implemented to make the end device join the server using OTAA, measure distance using an ultrasonic sensor, and send it to the server.
+End device C code:The code for the end device is available in the endDeviceVersion103.c file, This code is implemented to make the end device join the server using OTAA, measure distance using an ultrasonic sensor, and send it to the server.
 
 TTN uplink formatter:In TTNformatter.js, this is the formatter used to make the server side decode the raw payload and provide us the distance value.
 
@@ -51,3 +51,6 @@ body-parser: Middleware for parsing URL-encoded request bodies
 These dependencies are listed in the package. json file and will be installed automatically when running npm install.
 LMIC library: used to establish the LoRaWAN connection 
 NewPing library: used to configure the ultrasonic sensor
+
+
+
