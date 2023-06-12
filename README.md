@@ -18,19 +18,6 @@ Start the server by running the following command:
 node server.js
 Open a web browser and navigate to http://localhost:3000 (replace 3000 with the configured port if different).
 
-# End device C code
-
-The code for the end device is available in the endDeviceVersion103.c file.
-
-This code is implemented to make the end device join the server using OTAA, measure distance using an ultrasonic sensor, and send it to the server.
-
-# TTN uplink formatter
-
-In TTNformatter.js, this is the formatter used to make the server side decode the raw payload and provide us the distance value.
-
-# Description
-This project is a Node.js application that uses Express.js and Socket.io to create a real-time dashboard for displaying MQTT data received from The Things Network (TTN). The application allows users to enter MQTT connection details, connect to the TTN MQTT broker, and display the received data on a web dashboard.
-
 # Installation
 To run the application, follow these steps:
 
@@ -64,9 +51,8 @@ The code contains the following files:
 
 server.js: This file sets up the Express application, configures middleware, starts the server, and handles the MQTT connection.
 views/: This directory contains the EJS templates used to render the login and dashboard pages.
-Dependencies
+# Dependencies
 The project relies on the following dependencies:
-
 express: A fast, unopinionated, minimalist web framework for Node.js
 socket.io: A real-time bidirectional event-based communication library
 mqtt: MQTT client library for Node.js
