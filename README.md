@@ -2,21 +2,6 @@
 # Description
 This project is a Node.js application that uses Express.js and Socket.io to create a real-time dashboard for displaying MQTT data received from The Things Network (TTN). The application allows users to enter MQTT connection details, connect to the TTN MQTT broker, and display the received data on a web dashboard.
 
-# Installation
-To run the application, follow these steps:
-
-Clone the repository or download the source code.
-
-Install the required dependencies by running the following command:
-
-npm install
-Set up the required environment variables:
-
-PORT: The port on which the server will listen. If not specified, the default is 3000.
-Start the server by running the following command:
-
-node server.js
-Open a web browser and navigate to http://localhost:3000 (replace 3000 with the configured port if different).
 
 # Installation
 To run the application, follow these steps:
