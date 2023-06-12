@@ -1,41 +1,48 @@
 
 # Description
-This project is a Node.js application that uses Express.js and Socket.io to create a real-time dashboard for displaying MQTT data received from The Things Network (TTN). The application allows users to enter MQTT connection details, connect to the TTN MQTT broker, and display the received data on a web dashboard.
+This is a Node.js application that uses Express.js and Socket.io to build a real-time dashboard for displaying MQTT data from The Things Network (TTN). Users can enter MQTT connection information, connect to the TTN MQTT broker, and view the received data on a web dashboard.
 
 
 # Installation
-To run the application, follow these steps:
+Follow these steps to run the application:
 
-Clone the repository or download the source code.
+Download the source code or clone the repository.
 
-Install the required dependencies by running the following command:
+Run the following command to install the required dependencies:
 
-npm install
-Set up the required environment variables:
+`npm install`
 
-PORT: The port on which the server will listen. If not specified, the default is 3000.
-Start the server by running the following command:
+Set the necessary environment variables:
+PORT: The port on which the server will listen for connections. If no value is specified, the default value is 3000.
+Run the following command to start the server:
 
-node server.js
-Open a web browser and navigate to http://localhost:3000 (replace 3000 with the configured port if different).
+`node server.js`
+
+Navigate to http://localhost:3000 (replace 3000 with the configured port if different) in a web browser.
 
 # Usage
-Upon accessing the application in a web browser, you will be redirected to the login page.
-Enter the required MQTT connection details in the provided form.
-Submit the form to establish a connection to the TTN MQTT broker and retrieve data.
-You will be redirected to the dashboard page, where the received MQTT data will be displayed.
-The dashboard will automatically update every 2 seconds with the latest data received from the broker.
-Code Overview
-The main components of the code are as follows:
+When you open the application in a web browser, you will be taken to the login page.
+Fill out the form with the necessary MQTT connection information.
+You will be redirected to the dashboard page, which will display the received MQTT data.
+The dashboard will automatically refresh every 2 seconds with the most recent data from the broker.
 
-Express: The application is built using the Express.js framework.
-Socket.io: Real-time communication between the server and clients is implemented using Socket.io.
-MQTT: The MQTT connection to the TTN broker is established using the mqtt package.
-Views: The application uses the EJS templating engine to render dynamic views.
-The code contains the following files:
+# Code Overview
+The following are the code's main components:
 
-server.js: This file sets up the Express application, configures middleware, starts the server, and handles the MQTT connection.
-views/: This directory contains the EJS templates used to render the login and dashboard pages.
+The Express.js framework is used to build the application.
+Socket.io: Socket.io is used to implement real-time communication between the server and clients.
+MQTT: The mqtt package is used to establish a MQTT connection to the TTN broker.
+Views: To render dynamic views, the application employs the EJS templating engine.
+The following files are included in the code:
+
+server.js: This file configures the Express application, middleware, starts the server, and handles the MQTT connection.
+
+views/: The EJS templates used to render the login and dashboard pages can be found in this directory.
+
+End device C code:The code for the end device is available in the endDeviceVersion103.c file, This code is implemented to make the end device join the server using OTAA, measure distance using an ultrasonic sensor, and send it to the server.
+
+TTN uplink formatter:In TTNformatter.js, this is the formatter used to make the server side decode the raw payload and provide us the distance value.
+
 # Dependencies
 The project relies on the following dependencies:
 express: A fast, unopinionated, minimalist web framework for Node.js
@@ -43,15 +50,8 @@ socket.io: A real-time bidirectional event-based communication library
 mqtt: MQTT client library for Node.js
 body-parser: Middleware for parsing URL-encoded request bodies
 These dependencies are listed in the package. json file and will be installed automatically when running npm install.
+LMIC library: used to establish the LoRaWAN connection 
+NewPing library: used to configure the ultrasonic sensor
 
-# End device C code
-
-The code for the end device is available in the endDeviceVersion103.c file.
-
-This code is implemented to make the end device join the server using OTAA, measure distance using an ultrasonic sensor, and send it to the server.
-
-# TTN uplink formatter
-
-In TTNformatter.js, this is the formatter used to make the server side decode the raw payload and provide us the distance value.
 
 
