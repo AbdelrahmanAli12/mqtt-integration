@@ -1,10 +1,9 @@
 var express = require("express");
 var app = express();
-app.use(express.static("public")); //Procedure to set public folder contain process files (css,image,.js,..)
-app.set("view engine", "ejs"); // Use ejs instead of html
+app.use(express.static("public")); //Procedure to set public folder contain process files
+app.set("view engine", "ejs");
 app.set("views", "./views"); // view folder contain .ejs files
 
-// Parse URL-encoded bodies (as sent by HTML forms)
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -17,12 +16,9 @@ server.listen(process.env.PORT || 3000, () => {
 
 // MQTT setup
 var mqtt = require("mqtt");
-
 var client;
-
 // Global variable to save data
 var globalMQTT;
-
 // SOCKET
 io.on("connection", function (socket) {
   console.log("Client connected: " + socket.id);
