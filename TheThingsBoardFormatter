@@ -1,0 +1,23 @@
+var data = decodeToJson(payload);
+var deviceName = data.end_device_ids.device_id;
+var deviceType = data.end_device_ids.application_ids.application_id;
+
+var result = {
+    deviceName: deviceName,
+    deviceType: deviceType,
+    telemetry: {
+         distance: data.uplink_message.decoded_payload.distance
+    }
+};
+
+function decodeToString(payload) {
+    return String.fromCharCode.apply(String, payload);
+}
+
+function decodeToJson(payload) {
+    var str = decodeToString(payload);
+    var data = JSON.parse(str);
+    return data;
+}
+
+return result;
