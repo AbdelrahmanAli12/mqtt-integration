@@ -53,16 +53,16 @@ mqtt: MQTT client library for Node.js
 body-parser: Middleware for parsing URL-encoded request bodies
 These dependencies are listed in the package. json file and will be installed automatically when running npm install.
 
-LMIC library: used to establish the LoRaWAN connection in the end device
-
-NewPing library: used to configure the ultrasonic sensor
-
-project-specific definitions
+LMIC library: used to establish the LoRaWAN connection in the end device with the following project-specific definitions
 
 `#define CFG_eu868 1`
 `#define CFG_sx1276_radio 1`
 `#define DISABLE_PING`
 `#define DISABLE_BEACONS`
 `#define USE_IDEETRON_AES`
+
+NewPing library: used to configure the ultrasonic sensor
+
+
 
 
